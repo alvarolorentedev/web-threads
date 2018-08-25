@@ -1,0 +1,10 @@
+{
+  "name": "web-threads",
+  "version": "0.0.1",
+  "description": "generic threads using web workers for the web",
+  "main": "index.js",
+  "repository": "git@github.com:kanekotic/web-threads.git",
+  "author": "kanekotic <alvarojosepl@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
