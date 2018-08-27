@@ -14,8 +14,8 @@ add it to your project using `npm install web-threads --save` or `yarn add web-t
 import { execute } from 'web-threads'
 
 let func = (value) => {
-            return value * value
-        }
+    return value * value
+}
 let params = {
     fn: func.toString(),
     args: [2]
