@@ -4,7 +4,7 @@ function Func(value){
     this.value = value
 }
 
-describe('index should', () => {
+describe('worker should', () => {
     beforeAll(() => {
         global.postMessage = jest.fn()
     })
@@ -16,7 +16,7 @@ describe('index should', () => {
             return value * value
         }
         let params ={ data : [{
-            functionString: func.toString(),
+            fn: func.toString(),
             args: [2]
         }]} 
         worker(params)
@@ -30,7 +30,7 @@ describe('index should', () => {
         
         var instance = new Func(2)
         let params ={ data : [{
-            functionString: instance.foo.toString(),
+            fn: instance.foo.toString(),
             context: instance
         }]} 
         worker(params)
@@ -45,7 +45,7 @@ describe('index should', () => {
         
         var instance = new Func(2)
         let params ={ data : [{
-            functionString: instance.foo2.toString(),
+            fn: instance.foo2.toString(),
             context: instance,
             args: [4]
         }]} 
@@ -65,7 +65,7 @@ describe('index should', () => {
         
         var instance = new someClass(2)
         let params ={ data : [{
-            functionString: instance.foo.toString(),
+            fn: instance.foo.toString(),
             context: instance,
             args: [2]
         }]} 
