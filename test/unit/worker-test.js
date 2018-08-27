@@ -1,4 +1,4 @@
-import {worker} from '../../lib/worker'
+import worker from '../../lib/worker'
 
 function Func(value){
     this.value = value
@@ -19,7 +19,7 @@ describe('worker should', () => {
             fn: func.toString(),
             args: [2]
         }]} 
-        worker(params)
+        worker()(params)
         expect(global.postMessage).toBeCalledWith([4])
     })
 
@@ -33,7 +33,7 @@ describe('worker should', () => {
             fn: instance.foo.toString(),
             context: instance
         }]} 
-        worker(params)
+        worker()(params)
         expect(global.postMessage).toBeCalledWith([4])
     })
 
@@ -49,7 +49,7 @@ describe('worker should', () => {
             context: instance,
             args: [4]
         }]} 
-        worker(params)
+        worker()(params)
         expect(global.postMessage).toBeCalledWith([8])
     })
 
@@ -69,7 +69,7 @@ describe('worker should', () => {
             context: instance,
             args: [2]
         }]} 
-        worker(params)
+        worker()(params)
         expect(global.postMessage).toBeCalledWith([4])
     })
 })
