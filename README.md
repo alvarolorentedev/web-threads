@@ -2,6 +2,8 @@
 
 generic threads using web workers for the web
 
+*On development not production ready*
+
 ## Installation
 
 add it to your project using `npm install web-threads --save` or `yarn add web-threads`
