@@ -1,6 +1,6 @@
 {
   "name": "web-threads",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "generic threads using web workers for the web",
   "main": "lib/index.js",
   "scripts": {
