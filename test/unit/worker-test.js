@@ -20,12 +20,14 @@ describe('worker should', () => {
             args: [2]
         }]} 
         worker()(params)
-        expect(global.postMessage).toBeCalledWith([4])
+        expect(global.postMessage).toBeCalledWith([4, undefined])
     })
 
     test('call function with context', async () => {
         Func.prototype.foo = function(){
-            return this.value * this.value
+            let result = this.value * this.value
+            this.value = result
+            return result
         };
         
         var instance = new Func(2)
@@ -34,13 +36,15 @@ describe('worker should', () => {
             context: instance
         }]} 
         worker()(params)
-        expect(global.postMessage).toBeCalledWith([4])
+        expect(global.postMessage).toBeCalledWith([4, {value: 4}])
     })
 
     test('call function with context and param', async () => {
         
         Func.prototype.foo2 = function(otherValue){
-            return this.value * otherValue
+            let result = this.value * otherValue
+            this.value = result
+            return result
         };
         
         var instance = new Func(2)
@@ -50,16 +54,18 @@ describe('worker should', () => {
             args: [4]
         }]} 
         worker()(params)
-        expect(global.postMessage).toBeCalledWith([8])
+        expect(global.postMessage).toBeCalledWith([8, {value: 8}])
     })
 
     test('call class with context and param', async () => {
         class someClass {
-            constructor(val){
-                this.val = val
+            constructor(value){
+                this.value = value
             }
             foo(some){
-                return this.val * some
+                let result = this.value * some
+                this.value = result
+                return result
             }
         }
         
@@ -70,6 +76,6 @@ describe('worker should', () => {
             args: [2]
         }]} 
         worker()(params)
-        expect(global.postMessage).toBeCalledWith([4])
+        expect(global.postMessage).toBeCalledWith([4, {value: 4}])
     })
 })
