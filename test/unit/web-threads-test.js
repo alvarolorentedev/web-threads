@@ -1,4 +1,4 @@
-jest.mock('../../lib/worker', () => () => {`onmessage = function worker(params){ postMessage([params.data[0].args, params.data[0].context])} return`})
+jest.mock('../../lib/worker', () => () => {`onmessage = function worker(params){if(params.error){throw "error"} postMessage([params.data[0].args, params.data[0].context])} return`})
 import worker from '../../lib/worker'
 import { execute } from '../../lib/web-threads'
 import faker from 'faker'
@@ -6,16 +6,15 @@ import faker from 'faker'
 
 
 describe('web threads should', () => {
-    let fakeResult = faker.random.uuid()
-    let fakeContext = {some: faker.random.uuid()}
-    const webWorkerMock = {
-        postMessage: () => {webWorkerMock.onmessage({data: [fakeResult,fakeContext]})},
-    }
-    beforeAll(() => {
-        global.Worker = jest.fn().mockImplementation(function() {return webWorkerMock})
+
+    test('call returns result', async () => {
+        let fakeResult = faker.random.uuid()
+        let fakeContext = {some: faker.random.uuid()}
+        const webWorkerMock = {
+            postMessage: () => {webWorkerMock.onmessage({data: [fakeResult,fakeContext]})},
+        }
+        global.Worker = jest.fn().mockImplementation(() => webWorkerMock)
         global.URL = {createObjectURL: jest.fn()}
-    })
-    test('call simple stateless function', async () => {
         let params = {
             fn: () => {return 2},
             args: [2],
@@ -25,5 +24,18 @@ describe('web threads should', () => {
         result = await result
         expect(result).toEqual(fakeResult)
         expect(params.context).toEqual(fakeContext)
+    })
+
+    test('call fails', async () => {
+        let params = {
+            error: true
+        }
+        try{
+            await execute(params)
+            expect(false).toBeTruthy()
+        }
+        catch(e){
+        expect(true).toBeTruthy()
+        }
     })
 })
