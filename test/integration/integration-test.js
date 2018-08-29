@@ -1,27 +1,5 @@
-// const puppeteer = require('puppeteer');
-// const path = require('path');
-
-// (async () => {
-    
-//   const browser = await puppeteer.launch();
-//   const page = await browser.newPage();
-
-//   await page.goto(`file:${path.join(__dirname, '../../examples/index.html')}`);
-//   console.log('Current workers:');
-//   await page.waitFor(100);
-//   page.workers().forEach(async (worker) => {
-//       let result = await worker
-//       console.log(result)
-//     });
-//   await browser.close();
-// })();
-import worker from '../../lib/worker'
 import puppeteer from 'puppeteer'
 import path from 'path'
-
-function Func(value){
-    this.value = value
-}
 
 describe('integration should', () => {
     let browser
