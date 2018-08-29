@@ -17,11 +17,13 @@
     "preversion": "yarn test"
   },
   "keywords": [
-    "web workers",
+    "web worker",
+    "webworker",
+    "threads",
     "multithreading",
-    "async",
-    "generic workers",
-    "generic web workers"
+    "parallel",
+    "promise",
+    "generic"
   ],
   "repository": "git@github.com:kanekotic/web-threads.git",
   "author": "kanekotic <alvarojosepl@gmail.com>",
