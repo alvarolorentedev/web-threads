@@ -1,4 +1,10 @@
 # ![logomakr_09u4zz](https://user-images.githubusercontent.com/3071208/44622482-88a91a80-a8b9-11e8-976c-fdd422ac5c98.png)
+[![Build Status](https://travis-ci.org/kanekotic/web-threads.svg?branch=master)](https://travis-ci.org/kanekotic/web-threads)
+[![Coverage Status](https://coveralls.io/repos/github/kanekotic/web-threads/badge.svg?branch=master)](https://coveralls.io/github/kanekotic/web-threads?branch=master)
+[![npm](https://img.shields.io/npm/dt/web-threads.svg)](https://github.com/kanekotic/web-threads)
+[![GitHub license](https://img.shields.io/github/license/kanekotic/web-threads.svg)](https://github.com/kanekotic/web-threads/blob/master/LICENSE)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/kanekotic/web-threads/graphs/commit-activity)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/kanekotic/)
 
 generic threads using web workers for the web
 
