@@ -7,6 +7,5 @@ let params = {
     fn: func.toString(),
     args: [2]
 } 
-execute(params)
-    .then(console.log)
-    .catch(console.error)
+
+export default () => execute(params)

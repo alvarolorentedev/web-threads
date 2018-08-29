@@ -16,6 +16,4 @@ var params = {
     args: [4]
 } 
 
-execute(params)
-    .then(console.log)
-    .catch(console.error)
+export default () => execute(params)

@@ -21,17 +21,16 @@ var worker = (function () {
 
 var workerString = worker.toString();
 var code = workerString.substring(workerString.indexOf("{") + 1, workerString.lastIndexOf("return"));
-
 function execute(param) {
     return new Promise(function (resolve, reject) {
         var webWorker = new Worker(URL.createObjectURL(new Blob([code], { type: 'text/javascript' })));
-        var copy = Object.assign({}, param, { fn: param.fn.toString() });
-        webWorker.postMessage([copy]);
         webWorker.onmessage = function (result) {
             if (param.context) Object.assign(param.context, result.data[1]);
             resolve(result.data[0]);
         };
         webWorker.onerror = reject;
+        var copy = Object.assign({}, param, { fn: param.fn.toString() });
+        webWorker.postMessage([copy]);
     });
 }
 
@@ -42,7 +41,10 @@ var params = {
     fn: func.toString(),
     args: [2]
 };
-execute(params).then(console.log).catch(console.error);
+
+var ex1 = (function () {
+    return execute(params);
+});
 
 function Func(value) {
     this.value = value;
@@ -55,7 +57,10 @@ var params$1 = {
     fn: instance.foo,
     context: instance
 };
-execute(params$1).then(console.log).catch(console.error);
+
+var ex2 = (function () {
+    return execute(params$1);
+});
 
 function Func$1(value) {
     this.value = value;
@@ -69,7 +74,10 @@ var params$2 = {
     context: instance$1,
     args: [4]
 };
-execute(params$2).then(console.log).catch(console.error);
+
+var ex3 = (function () {
+    return execute(params$2);
+});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -99,4 +107,31 @@ var params$3 = {
     args: [4]
 };
 
-execute(params$3).then(console.log).catch(console.error);
+var ex4 = (function () {
+    return execute(params$3);
+});
+
+var element1 = document.getElementById("el1");
+var element2 = document.getElementById("el2");
+var element3 = document.getElementById("el3");
+var element4 = document.getElementById("el4");
+ex1().then(function (result) {
+    element1.innerHTML = result;
+}).catch(function () {
+    element1.innerHTML = "Fail";
+});
+ex2().then(function (result) {
+    element2.innerHTML = result;
+}).catch(function () {
+    element2.innerHTML = "Fail";
+});
+ex3().then(function (result) {
+    element3.innerHTML = result;
+}).catch(function () {
+    element3.innerHTML = "Fail";
+});
+ex4().then(function (result) {
+    element4.innerHTML = result;
+}).catch(function () {
+    element4.innerHTML = "Fail";
+});

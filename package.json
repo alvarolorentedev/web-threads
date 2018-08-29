@@ -17,8 +17,11 @@
     "preversion": "yarn test"
   },
   "keywords": [
-    "Web Workers",
-    "Multithreading"
+    "web workers",
+    "multithreading",
+    "async",
+    "generic workers",
+    "generic web workers"
   ],
   "repository": "git@github.com:kanekotic/web-threads.git",
   "author": "kanekotic <alvarojosepl@gmail.com>",
@@ -31,6 +34,8 @@
     "coveralls": "3.0.2",
     "faker": "4.1.0",
     "jest": "23.5.0",
+    "jest-puppeteer": "3.3.1",
+    "puppeteer": "1.7.0",
     "rollup": "0.65.0",
     "rollup-plugin-babel": "3.0.7",
     "rollup-plugin-uglify": "4.0.0",

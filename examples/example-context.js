@@ -11,6 +11,5 @@ let params = {
     fn: instance.foo,
     context: instance
 } 
-execute(params)
-    .then(console.log)
-    .catch(console.error)
+
+export default () => execute(params)
