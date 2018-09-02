@@ -10,6 +10,7 @@ describe('web threads should', () => {
     test('call with context returns result', async () => {
         let fakeResult = faker.random.uuid()
         let fakeContext = {some: faker.random.uuid()}
+        let somefun = () => {}
         const webWorkerMock = {
             postMessage: () => {webWorkerMock.onmessage({data: [fakeResult,fakeContext]})},
         }
@@ -18,12 +19,12 @@ describe('web threads should', () => {
         let params = {
             fn: () => {return 2},
             args: [2],
-            context: {some: faker.random.uuid()}
+            context: {some: faker.random.uuid(), somefun}
         }
         let result = execute(params)
         result = await result
         expect(result).toEqual(fakeResult)
-        expect(params.context).toEqual(fakeContext)
+        expect(params.context).toEqual(Object.assign(fakeContext,{ somefun }))
     })
 
     test('call without context returns result', async () => {
