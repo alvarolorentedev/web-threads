@@ -35,9 +35,7 @@
     "faker": "4.1.0",
     "jest": "23.5.0",
     "jest-puppeteer": "3.3.1",
-    "puppeteer": "1.7.0"
-  },
-  "dependencies": {
+    "puppeteer": "1.7.0",
     "babel-preset-env": "1.7.0",
     "babel-preset-stage-0": "6.24.1",
     "rollup": "0.65.0",
