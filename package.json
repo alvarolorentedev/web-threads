@@ -4,7 +4,7 @@
   "description": "generic threads using web workers for the web",
   "main": "dist/web-threads.js",
   "scripts": {
-    "build": "rollup -c",
+    "prepare": "rollup -c",
     "test": "jest",
     "test:dev": "jest --watchAll test/unit",
     "test:int": "jest test/integration",
