@@ -2,7 +2,7 @@
   "name": "web-threads",
   "version": "1.0.2",
   "description": "generic threads using web workers for the web",
-  "main": "lib/web-threads.js",
+  "main": "dist/web-threads.js",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
