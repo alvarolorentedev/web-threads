@@ -1,6 +1,6 @@
 {
   "name": "web-threads",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "generic threads using web workers for the web",
   "main": "dist/web-threads.js",
   "scripts": {
@@ -30,10 +30,10 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "babel-jest": "23.4.2",
     "coveralls": "3.0.2",
     "faker": "4.1.0",
     "jest": "23.5.0",
-    "babel-jest": "23.4.2",
     "jest-puppeteer": "3.3.1",
     "puppeteer": "1.7.0"
   },
