@@ -20,7 +20,18 @@ var worker = (function () {
 });
 
 var workerString = worker.toString();
+
 var code = workerString.substring(workerString.indexOf("{") + 1, workerString.lastIndexOf("return"));
+
+var mapToClonableContext = function mapToClonableContext(context) {
+    return Object.entries(context).filter(function (keyValue) {
+        return typeof keyValue[1] !== "function";
+    }).reduce(function (base, keyValue) {
+        base[keyValue[0]] = keyValue[1];
+        return base;
+    }, {});
+};
+
 function execute(param) {
     return new Promise(function (resolve, reject) {
         var webWorker = new Worker(URL.createObjectURL(new Blob([code], { type: 'text/javascript' })));
@@ -29,7 +40,10 @@ function execute(param) {
             resolve(result.data[0]);
         };
         webWorker.onerror = reject;
-        var copy = Object.assign({}, param, { fn: param.fn.toString() });
+        var copy = Object.assign({}, param, {
+            fn: param.fn.toString(),
+            context: param.context ? mapToClonableContext(param.context) : undefined
+        });
         webWorker.postMessage([copy]);
     });
 }
