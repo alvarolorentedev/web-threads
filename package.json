@@ -32,24 +32,25 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "babel-core": "6.26.3",
-    "babel-jest": "23.4.2",
-    "babel-preset-env": "1.7.0",
-    "babel-preset-stage-0": "6.24.1",
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "7.0.0",
+    "@babel/preset-stage-0": "7.0.0",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^23.6.0",
     "coveralls": "3.0.2",
     "faker": "4.1.0",
-    "jest": "23.5.0",
+    "jest": "23.6.0",
     "jest-puppeteer": "3.3.1",
-    "puppeteer": "1.7.0",
-    "rollup": "0.65.0",
-    "rollup-plugin-babel": "3.0.7",
-    "rollup-plugin-uglify": "4.0.0",
+    "puppeteer": "1.8.0",
+    "regenerator-runtime": "^0.12.1",
+    "rollup": "0.65.2",
+    "rollup-plugin-babel": "4.0.3",
+    "rollup-plugin-uglify": "5.0.2",
     "uglify-es": "3.3.9"
   },
   "babel": {
     "presets": [
-      "env",
-      "stage-0"
+      "@babel/env"
     ]
   },
   "jest": {

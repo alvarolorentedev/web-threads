@@ -5,17 +5,7 @@ import { minify } from 'uglify-es'
 export default {
     input: "lib/web-threads.js",
     plugins: [
-        babel({
-            "presets": [
-                [
-                    "env",
-                    {
-                        "modules": false
-                    }
-                ]
-            ],
-            "babelrc": false,
-        }),
+        babel(),
         uglify({},minify)
     ],
     output: [
