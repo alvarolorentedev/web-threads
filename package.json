@@ -40,8 +40,8 @@
     "faker": "4.1.0",
     "jest": "23.6.0",
     "jest-puppeteer": "3.4.0",
-    "puppeteer": "1.8.0",
-    "rollup": "0.66.2",
+    "puppeteer": "1.9.0",
+    "rollup": "0.66.4",
     "rollup-plugin-babel": "4.0.3",
     "rollup-plugin-uglify": "6.0.0",
     "uglify-es": "3.3.9"
