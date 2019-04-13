@@ -1,6 +1,6 @@
 {
   "name": "web-threads",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "generic threads using web workers for the web",
   "main": "dist/web-threads.js",
   "scripts": {
