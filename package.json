@@ -32,8 +32,8 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "@babel/core": "7.7.2",
-    "@babel/preset-env": "7.7.1",
+    "@babel/core": "7.7.4",
+    "@babel/preset-env": "7.7.4",
     "babel-core": "^7.0.0-0",
     "babel-jest": "24.9.0",
     "codecov": "3.6.1",
@@ -41,7 +41,7 @@
     "jest": "24.9.0",
     "jest-puppeteer": "4.3.0",
     "puppeteer": "2.0.0",
-    "rollup": "1.27.0",
+    "rollup": "1.27.4",
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-uglify": "6.0.3",
     "uglify-es": "3.3.9"
