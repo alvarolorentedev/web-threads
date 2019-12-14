@@ -33,7 +33,7 @@
   "private": false,
   "devDependencies": {
     "@babel/core": "7.7.5",
-    "@babel/preset-env": "7.7.5",
+    "@babel/preset-env": "7.7.6",
     "babel-core": "^7.0.0-0",
     "babel-jest": "24.9.0",
     "codecov": "3.6.1",
@@ -41,9 +41,9 @@
     "jest": "24.9.0",
     "jest-puppeteer": "4.3.0",
     "puppeteer": "2.0.0",
-    "rollup": "1.27.8",
+    "rollup": "1.27.12",
     "rollup-plugin-babel": "4.3.3",
-    "rollup-plugin-uglify": "6.0.3",
+    "rollup-plugin-uglify": "6.0.4",
     "uglify-es": "3.3.9"
   },
   "babel": {
