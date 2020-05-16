@@ -41,7 +41,7 @@
     "jest": "26.0.1",
     "jest-puppeteer": "4.4.0",
     "puppeteer": "3.0.4",
-    "rollup": "2.8.2",
+    "rollup": "2.10.2",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-uglify": "6.0.4",
     "uglify-es": "3.3.9"
