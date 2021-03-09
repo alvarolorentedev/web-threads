@@ -4,7 +4,6 @@
 [![npm](https://img.shields.io/npm/dt/web-threads.svg)](https://github.com/kanekotic/web-threads)
 [![GitHub license](https://img.shields.io/github/license/kanekotic/web-threads.svg)](https://github.com/kanekotic/web-threads/blob/master/LICENSE)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/kanekotic/web-threads/graphs/commit-activity)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/kanekotic/)
 
 generic threads using web workers for the web
 
