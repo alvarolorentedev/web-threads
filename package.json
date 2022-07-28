@@ -34,18 +34,16 @@
   "devDependencies": {
     "@babel/core": "7.18.9",
     "@babel/preset-env": "7.18.9",
-    "@faker-js/faker": "^7.3.0",
-    "babel-core": "^7.0.0-0",
+    "@faker-js/faker": "7.3.0",
+    "babel-core": "7.0.0-bridge.0",
     "babel-jest": "28.1.3",
     "codecov": "3.8.3",
     "jest": "28.1.3",
+    "jest-environment-jsdom": "28.1.3",
     "jest-puppeteer": "6.1.1",
     "puppeteer": "15.5.0",
     "rollup": "2.77.2",
-    "rollup-plugin-babel": "4.4.0",
-    "rollup-plugin-uglify": "6.0.4",
-    "uglify-es": "3.3.9",
-    "jest-environment-jsdom": "^28.1.3"
+    "rollup-plugin-babel": "4.4.0"
   },
   "babel": {
     "presets": [
@@ -72,7 +70,7 @@
       "**/test/**/*-test.js"
     ],
     "transform": {
-      "^.+\\.jsx|.js?$": "babel-jest"
+      ".+\\.jsx|.js?$": "babel-jest"
     }
   }
 }
