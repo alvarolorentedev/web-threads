@@ -110,9 +110,7 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-var someClass =
-/*#__PURE__*/
-function () {
+var someClass = /*#__PURE__*/function () {
   function someClass(val) {
     _classCallCheck(this, someClass);
 
@@ -145,21 +143,21 @@ var element3 = document.getElementById("el3");
 var element4 = document.getElementById("el4");
 ex1().then(function (result) {
   element1.innerHTML = result;
-}).catch(function () {
+})["catch"](function () {
   element1.innerHTML = "Fail";
 });
 ex2().then(function (result) {
   element2.innerHTML = result;
-}).catch(function () {
+})["catch"](function () {
   element2.innerHTML = "Fail";
 });
 ex3().then(function (result) {
   element3.innerHTML = result;
-}).catch(function () {
+})["catch"](function () {
   element3.innerHTML = "Fail";
 });
 ex4().then(function (result) {
   element4.innerHTML = result;
-}).catch(function () {
+})["catch"](function () {
   element4.innerHTML = "Fail";
 });
