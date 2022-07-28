@@ -8,7 +8,7 @@ var element3 = document.getElementById("el3")
 var element4 = document.getElementById("el4")
 ex1().then((result) => {
     element1.innerHTML = result;
-}).catch(() => {
+}).catch((a) => {
     element1.innerHTML = "Fail";
 });
 ex2().then((result) => {

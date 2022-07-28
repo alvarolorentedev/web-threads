@@ -12,7 +12,7 @@ describe('integration should', () => {
     test('webworkers should resolve to elements', async () => {
         const page = await browser.newPage();
         await page.goto(`file:${path.join(__dirname, '../../examples/index.html')}`);
-        await page.waitForTimeout(100);
+        await page.waitForTimeout(1000);
         const el1 = await page.evaluate(() => document.querySelector('#el1').textContent);
         const el2 = await page.evaluate(() => document.querySelector('#el2').textContent);
         const el3 = await page.evaluate(() => document.querySelector('#el3').textContent);

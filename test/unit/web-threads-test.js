@@ -1,13 +1,17 @@
 jest.mock('../../lib/worker', () => () => {`onmessage = function worker(params){if(params.error){throw "error"} postMessage([params.data[0].args, params.data[0].context])} return`})
 
 import { execute } from '../../lib/web-threads'
-import faker from 'faker'
+import { faker } from '@faker-js/faker'
+import { Blob } from 'buffer'
 
 describe('web threads should', () => {
+    beforeAll(() => {
+        globalThis.Blob = Blob
+    });
 
     test('call with context returns result', async () => {
-        let fakeResult = faker.random.uuid()
-        let fakeContext = {some: faker.random.uuid()}
+        let fakeResult = faker.datatype.uuid()
+        let fakeContext = {some: faker.datatype.uuid()}
         let somefun = () => {}
         const webWorkerMock = {
             postMessage: () => {webWorkerMock.onmessage({data: [fakeResult,fakeContext]})},
@@ -17,7 +21,7 @@ describe('web threads should', () => {
         let params = {
             fn: () => {return 2},
             args: [2],
-            context: {some: faker.random.uuid(), somefun}
+            context: {some: faker.datatype.uuid(), somefun}
         }
         let result = execute(params)
         result = await result
@@ -26,8 +30,8 @@ describe('web threads should', () => {
     })
 
     test('call without context returns result', async () => {
-        let fakeResult = faker.random.uuid()
-        let fakeContext = {some: faker.random.uuid()}
+        let fakeResult = faker.datatype.uuid()
+        let fakeContext = {some: faker.datatype.uuid()}
         const webWorkerMock = {
             postMessage: () => {webWorkerMock.onmessage({data: [fakeResult,fakeContext]})},
         }
